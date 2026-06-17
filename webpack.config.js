@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   target: "web",
   mode: "development",
-  entry: path.resolve(__dirname, "src/js/", "index.js"),
+  entry: path.resolve(__dirname, "src/", "main.js"),
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
@@ -25,12 +25,12 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /z.js$/,
-        exclude: /node_module/,
+        test: /\.js$/,
+        exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
-            preset: ["@babel/preset-env"],
+            presets: ["@babel/preset-env"],
           },
         },
       },
