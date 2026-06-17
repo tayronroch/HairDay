@@ -8,6 +8,8 @@
   "scripts": {
     "server": "json-server --watch server.json --port 3333",
     "build": "webpack",
+    "dev": "webpack server",
+    "build:dev": "npm run build && npm run dev",
     "lint:check": "npm run lint:prettier:check && npm run lint:eslint:check && npm run lint:secretlint:check",
     "lint:fix": "npm run lint:prettier:fix && npm run lint:eslint:fix",
     "services:wait:database": "node infra/scripts/wait-for-postgres.js",
@@ -37,7 +39,8 @@
     "prettier": "^3.3.3",
     "secretlint": "^13.0.2",
     "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   },
   "config": {
     "commitizen": {
