@@ -1,0 +1,38 @@
+{
+  "scripts": {
+    "server": "json-server --watch server.json --port 3333",
+    "lint:check": "npm run lint:prettier:check && npm run lint:eslint:check && npm run lint:secretlint:check",
+    "lint:fix": "npm run lint:prettier:fix && npm run lint:eslint:fix",
+    "services:wait:database": "node infra/scripts/wait-for-postgres.js",
+    "lint:prettier:fix": "prettier --write .",
+    "lint:eslint:check": "next lint --dir .",
+    "lint:eslint:fix": "eslint --fix .",
+    "lint:secretlint:check": "secretlint \"**/*\" --secretlintignore .gitignore",
+    "test:watch": "jest --watchAll --runInBand --verbose",
+    "prepare": "husky",
+    "commit": "cz"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.15"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@secretlint/secretlint-rule-preset-recommend": "^13.0.2",
+    "commitizen": "^4.3.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.5",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jest": "^28.8.0",
+    "husky": "^9.1.4",
+    "npm-check-updates": "^22.2.3",
+    "prettier": "^3.3.3",
+    "secretlint": "^13.0.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
