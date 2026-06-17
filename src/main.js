@@ -2,7 +2,7 @@
 
 import dayjs from "./libs/dayjs.js";
 import "./modules/form/submit.js";
-import "./modules/load.js";
+import "./modules/page-load.js";
 
 import "./styles/global.css";
 import "./styles/form.css";
