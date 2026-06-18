@@ -1,5 +1,7 @@
-import { shedulesDay } from "./schedules/load.js";
+import dayjs from "../libs/dayjs.js";
+import { hoursLoad } from "./form/hours-load.js";
 
-document.addEventListener("DOMContentLoaded", function () {
-  shedulesDay;
-});
+export function schedulesDay() {
+  const date = dayjs().format("YYYY-MM-DD");
+  hoursLoad({ date });
+}
