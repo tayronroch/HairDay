@@ -1,13 +1,35 @@
 import dayjs from "dayjs";
 
 const form = document.querySelector("form");
-const SelectedDate = document.getElementById("date");
-const inputToDay = dayjs(new Date()).format("YYYY-MM-DD");
+const clientName = document.getElementById("client");
+const selectedDate = document.getElementById("date");
+const inputToday = dayjs(new Date()).format("YYYY-MM-DD");
 
-SelectedDate.value = inputToDay;
-SelectedDate.min = inputToDay;
+selectedDate.value = inputToday;
+selectedDate.min = inputToday;
 
 form.onsubmit = (event) => {
   event.preventDefault();
-  console.log("Enviado");
+
+  try {
+    const name = clientName.value.trim();
+
+    if (!name) {
+      return alert("Informe o nome do cliente");
+    }
+
+    const hourSelected = document.querySelector(".hour-selected");
+
+    if (!hourSelected) {
+      return alert("Selecione um horário");
+    }
+
+    const [hour] = hourSelected.innerHTML.split(":");
+    const when = dayjs(selectedDate.value).add(hour, "hour");
+    const id = new Date().getTime();
+    console.log(id, name, when);
+  } catch (error) {
+    alert("Não foi possível realizar o agendamento");
+    console.log(error);
+  }
 };
