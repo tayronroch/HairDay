@@ -5,8 +5,12 @@ export function hoursLoad({ date }) {
   const opening = openingHours.map((hour) => {
     const [scheduleHour] = hour.split(":");
 
-    const isHourPast = dayjs(date).add(scheduleHour, "hour").isBefore(dayjs());
+    const isHourPast = dayjs(date).add(scheduleHour, "hour").isAfter(dayjs());
 
-    console.log(scheduleHour, isHourPast);
+    return {
+      hour,
+      avaliable: isHourPast,
+    };
   });
+  console.log(opening);
 }
