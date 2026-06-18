@@ -1,7 +1,5 @@
-import dayjs from "../libs/dayjs.js";
-import { hoursLoad } from "./form/hours-load.js";
+import { schedulesDay } from "./schedules/load.js";
+import "./form/data-change.js";
+import "./form/submit.js";
 
-export function schedulesDay() {
-  const date = dayjs().format("YYYY-MM-DD");
-  hoursLoad({ date });
-}
+schedulesDay();

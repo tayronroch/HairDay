@@ -25,7 +25,7 @@ form.onsubmit = async (event) => {
     }
 
     const [hour] = hourSelected.innerHTML.split(":");
-    const when = dayjs(selectedDate.value).add(hour, "hour");
+    const when = dayjs(selectedDate.value).add(hour, "hour").toISOString();
     const id = new Date().getTime();
 
     await scheduleNew(id, name, when);
