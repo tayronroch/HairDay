@@ -5,6 +5,9 @@
     "name": "Tayron Rocha",
     "email": "tayronroch@mail.com"
   },
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "server": "json-server --watch server.json --port 3333",
     "build": "webpack",
@@ -23,6 +26,7 @@
     "commit": "cz"
   },
   "dependencies": {
+    "dayjs": "^1.11.10",
     "json-server": "^1.0.0-beta.15"
   },
   "devDependencies": {
