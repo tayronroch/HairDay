@@ -1,4 +1,5 @@
 import { apiConfig } from "./api-config";
+import { showDialog } from "../utils/dialog.js";
 
 export async function scheduleNew(id, name, when) {
   try {
@@ -9,6 +10,6 @@ export async function scheduleNew(id, name, when) {
     });
   } catch (error) {
     console.log(error);
-    alert("Não foi possível agendar, Tente novamente mais tardes");
+    showDialog("Não foi possível agendar, tente novamente mais tarde.");
   }
 }

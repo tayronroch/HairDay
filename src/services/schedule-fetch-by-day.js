@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import { apiConfig } from "./api-config";
+import { showDialog } from "../utils/dialog.js";
 
 export async function schedulFetchByDay({ date }) {
   try {
@@ -10,7 +11,7 @@ export async function schedulFetchByDay({ date }) {
     );
     return dailySchedules;
   } catch (error) {
-    alert("Não foi possível realizar o agendamento do dia selecionado.");
+    showDialog("Não foi possível buscar os agendamentos do dia selecionado.");
     console.log(error);
     return [];
   }

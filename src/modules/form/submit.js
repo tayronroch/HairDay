@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import { schedulesDay } from "../schedules/load.js";
 import { scheduleNew } from "../../services/schedule-new.js";
+import { showDialog } from "../../utils/dialog.js";
 
 const form = document.querySelector("form");
 const clientName = document.getElementById("client");
@@ -21,13 +22,13 @@ form.onsubmit = async (event) => {
     const name = clientName.value.trim();
 
     if (!name) {
-      return alert("Informe o nome do cliente");
+      return showDialog("Informe o nome do cliente");
     }
 
     const hourSelected = document.querySelector(".hour-selected");
 
     if (!hourSelected) {
-      return alert("Selecione um horário");
+      return showDialog("Selecione um horário");
     }
 
     const [hour] = hourSelected.innerHTML.split(":");
@@ -38,10 +39,10 @@ form.onsubmit = async (event) => {
 
     await scheduleNew(id, name, when);
     await schedulesDay();
-    alert("Cadastro realizado com sucesso!");
+    showDialog("Cadastro realizado com sucesso!", "success");
     clientName.value = "";
   } catch (error) {
-    alert("Não foi possível realizar o agendamento");
+    showDialog("Não foi possível realizar o agendamento");
     console.log(error);
   }
 };

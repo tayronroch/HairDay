@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { showDialog } from "../../utils/dialog.js";
 
 const periodMorning = document.getElementById("period-morning");
 const periodAfternoon = document.getElementById("period-afternoon");
@@ -35,7 +36,7 @@ export function schedulesShow({ dailySchedules }) {
       }
     });
   } catch (error) {
-    alert("Não foi possivel exibir o agendamento");
+    showDialog("Não foi possivel exibir o agendamento");
     console.log(error);
   }
 }
