@@ -1,4 +1,5 @@
 import { apiConfig } from "./api-config";
+import { showDialog } from "../utils/dialog.js";
 
 export async function scheduleCancel({ id }) {
   try {
@@ -7,6 +8,6 @@ export async function scheduleCancel({ id }) {
     });
   } catch (error) {
     console.log(error);
-    alert("Não foi possível cancelar o agendamento");
+    showDialog("Não foi possível cancelar o agendamento");
   }
 }

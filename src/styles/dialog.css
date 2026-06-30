@@ -1,0 +1,95 @@
+.app-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  margin: 0;
+  opacity: 0;
+
+  border: none;
+  border-radius: 0.75rem;
+  background-color: #2e2c30;
+  color: #f5f4f5;
+  padding: 1.5rem;
+  min-width: 300px;
+  max-width: 400px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  /* Transição suave usando overlay/allow-discrete para dialogs em navegadores modernos */
+  transition:
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out,
+    display 0.3s ease-out allow-discrete,
+    overlay 0.3s ease-out allow-discrete;
+}
+
+.app-dialog[open] {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@starting-style {
+  .app-dialog[open] {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+.app-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition:
+    opacity 0.3s ease-out,
+    display 0.3s ease-out allow-discrete,
+    overlay 0.3s ease-out allow-discrete;
+}
+
+.app-dialog[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .app-dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+.dialog-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+#dialog-message,
+#confirm-message {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.dialog-close {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #b8952e;
+  color: #19181b;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+
+.dialog-close:hover {
+  background-color: #d4ab36;
+}
+
+.dialog-close:active {
+  transform: scale(0.98);
+}

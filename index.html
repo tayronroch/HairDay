@@ -153,6 +153,51 @@
       </aside>
     </div>
 
+    <dialog id="app-dialog" class="app-dialog">
+      <div class="dialog-content">
+        <img
+          id="dialog-icon"
+          src="./src/assets/error.svg"
+          alt="Ícone de mensagem"
+        />
+        <p id="dialog-message"></p>
+      </div>
+      <form method="dialog">
+        <button id="dialog-close" class="dialog-close">OK</button>
+      </form>
+    </dialog>
+
+    <dialog id="confirm-dialog" class="app-dialog">
+      <div class="dialog-content">
+        <span>
+          <img src="./src/assets/question.svg" alt="Ícone de confirmação" />
+        </span>
+        <p
+          id="confirm-message"
+          style="
+            color: #b8952e;
+            font-size: 1.125rem;
+            font-weight: 500;
+            line-height: 1.5;
+          "
+        ></p>
+      </div>
+      <div style="display: flex; gap: 1rem">
+        <button
+          id="confirm-no"
+          class="dialog-close"
+          style="
+            background-color: #2e2c30;
+            color: #f5f4f5;
+            border: 1px solid #b8952e;
+          "
+        >
+          Cancelar
+        </button>
+        <button id="confirm-yes" class="dialog-close">Confirmar</button>
+      </div>
+    </dialog>
+
     <script src="./src/main.js" defer></script>
   </body>
 </html>
