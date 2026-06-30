@@ -12,5 +12,6 @@ export async function schedulFetchByDay({ date }) {
   } catch (error) {
     alert("Não foi possível realizar o agendamento do dia selecionado.");
     console.log(error);
+    return [];
   }
 }
