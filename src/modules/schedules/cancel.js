@@ -11,7 +11,9 @@ periods.forEach((period) => {
       const id = item.getAttribute("date-id");
 
       if (id) {
-        const isConfirm = await showConfirmDialog("Tem certeza que deseja cancelar?");
+        const isConfirm = await showConfirmDialog(
+          "Tem certeza que deseja cancelar?",
+        );
 
         if (isConfirm) {
           await scheduleCancel({ id });
